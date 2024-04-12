@@ -87,7 +87,9 @@ struct DashboardScreen: View {
             }
             .padding()
             
-            GroupedSquaredCardView(items: $exploreData)
+            GroupedSquaredCardView(items: $exploreData) { model in
+                path = [.chatScreenWithTopic(topic: model.title)]
+            }
         }
     }
     
@@ -97,7 +99,7 @@ struct DashboardScreen: View {
             .padding()
             
             MultiRowGroupedChipView(items: $promptLib, maxItemPerRow: 4) { selected in
-                print(selected)
+                path = [.chatScreenWithTopic(topic: selected)]
             }
         }
     }

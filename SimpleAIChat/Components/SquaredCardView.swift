@@ -8,39 +8,44 @@
 import SwiftUI
 
 struct SquaredCardView: View {
+    @Binding var item: SquaredCardModel
     var cardColor: Color = .gray
     var foregroundStyle: Color = .white
-    @Binding var item: SquaredCardModel
+    var onTap: (SquaredCardModel) -> ()
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading, spacing: 8) {
-                item.image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 28)
-                
-                Text(item.title)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                
-                Text(item.description)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.caption)
-                    .fontWeight(.regular)
-                
-                Spacer()
+        Button {
+            onTap(item)
+        } label: {
+            VStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    item.image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 28)
+                    
+                    Text(item.title)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                    
+                    Text(item.description)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .font(.caption)
+                        .fontWeight(.regular)
+                    
+                    Spacer()
+                }
+                .padding()
             }
-            .padding()
-        }
-        .foregroundStyle(foregroundStyle)
-        .frame(width: 150, height: 150)
-        .background(cardColor)
+            .foregroundStyle(foregroundStyle)
+            .frame(width: 150, height: 150)
+            .background(cardColor)
         .clipShape(RoundedRectangle(cornerRadius: 10))
+        }
     }
 }
 
 #Preview {
-    SquaredCardView(item: .constant(SquaredCardModel(title: "This is title", description: "This is the placeholder of description", image: Image(systemName: "keyboard"))))
+    SquaredCardView(item: .constant(SquaredCardModel(title: "This is title", description: "This is the placeholder of description", image: Image(systemName: "keyboard"))), onTap: { _ in })
 }

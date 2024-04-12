@@ -14,16 +14,17 @@ struct SquaredCardModel {
 }
 
 struct GroupedSquaredCardView: View {
+    @Binding var items: [SquaredCardModel]
     var cardColor: Color = .gray
     var foregroundStyle: Color = .white
     var icon: Image = Image(systemName: "circle")
-    @Binding var items: [SquaredCardModel]
+    var onTap: (SquaredCardModel) -> ()
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach($items, id: \.title) { item in
-                    SquaredCardView(cardColor: cardColor, foregroundStyle: foregroundStyle, item: item)
+                    SquaredCardView(item: item, cardColor: cardColor, foregroundStyle: foregroundStyle, onTap: onTap)
                 }
             }
             .padding(.horizontal, 16)
@@ -32,5 +33,5 @@ struct GroupedSquaredCardView: View {
 }
 
 #Preview {
-    GroupedSquaredCardView(items: .constant([]))
+    GroupedSquaredCardView(items: .constant([]), onTap: { _ in })
 }

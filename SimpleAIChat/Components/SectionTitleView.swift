@@ -23,7 +23,7 @@ struct SectionTitleView: View {
             
             if icon != nil {
                 Button {
-                    
+                    onTapped()
                 } label: {
                     icon!
                         .resizable()
