@@ -1,5 +1,5 @@
 {
-  "originHash" : "15e28ed5b8ff42cb734cb94eb23d27e9ecd74dc375f98d18e62754d34491adee",
+  "originHash" : "ade46c99b628ea44f3a5e32ca32c8935351707a64665898789369d7ae48e84da",
   "pins" : [
     {
       "identity" : "combine-schedulers",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "d7b896fa9ca8b47fa7bcde6b43ef9b70bf8c1f56",
         "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "openaiswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/adamrushy/OpenAISwift",
+      "state" : {
+        "revision" : "ca66fb720d6ebb657601db5a0852b830ae310a4c",
+        "version" : "1.4.1"
       }
     },
     {

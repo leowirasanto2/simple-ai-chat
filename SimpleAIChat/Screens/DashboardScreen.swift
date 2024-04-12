@@ -30,6 +30,7 @@ struct DashboardScreen: View {
             switch destination {
             case .chatScreen:
                 ChatScreen()
+                    .environmentObject(ChatModel())
             case .chatScreenWithTopic(let topic):
                 Text("chat screen - \(topic)")
             case .exploreScreen:
@@ -115,4 +116,5 @@ struct DashboardScreen: View {
 
 #Preview {
     DashboardScreen(path: .constant([]))
+        .environmentObject(ContentModel())
 }
