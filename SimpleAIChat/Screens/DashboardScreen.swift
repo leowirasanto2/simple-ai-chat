@@ -20,11 +20,10 @@ struct DashboardScreen: View {
         ScrollView {
             newChatBtn
             chatHistorySection
-            Text(selectedText)
-                .foregroundStyle(.white)
+            exploreMoreView
         }
         .frame(maxWidth: .infinity)
-        .background(.black)
+        .background(.linearGradient(colors: [.black, .gray], startPoint: .top, endPoint: .bottom))
     }
     
     private var newChatBtn: some View {
@@ -47,28 +46,23 @@ struct DashboardScreen: View {
     
     private var chatHistorySection: some View {
         VStack {
-            HStack(alignment: .center) {
-                Text("Chat History")
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(.white)
-                
-                Spacer()
-                
-                Button {
-                    
-                } label: {
-                    Image(systemName: "arrow.right.circle.fill")
-                        .resizable()
-                        .foregroundStyle(.white)
-                        .frame(width: 40, height: 40)
-                }
+            SectionTitleView(title: "Chat History") {
+                //TODO: - go to chat view
             }
             .padding()
             
             GroupedChipTextView(texts: $chatHistory) { selected in
                 selectedText = selected
             }
+        }
+    }
+    
+    private var exploreMoreView: some View {
+        VStack {
+            SectionTitleView(title: "Explore More") {
+                //TODO: - go to topics
+            }
+            .padding()
         }
     }
 }

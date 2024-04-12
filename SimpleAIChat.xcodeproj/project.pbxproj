@@ -22,6 +22,7 @@
 		60CD9BFA2BC8F4190033F343 /* DashboardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */; };
 		60CD9BFD2BC8F6930033F343 /* ChipTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */; };
 		60CD9BFF2BC8F7EF0033F343 /* GroupedChipTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */; };
+		60CD9C012BC8FCAE0033F343 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9C002BC8FCAE0033F343 /* SectionTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContentModel.swift; sourceTree = "<group>"; };
 		60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipTextView.swift; sourceTree = "<group>"; };
 		60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedChipTextView.swift; sourceTree = "<group>"; };
+		60CD9C002BC8FCAE0033F343 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			children = (
 				60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */,
 				60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */,
+				60CD9C002BC8FCAE0033F343 /* SectionTitleView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				60CD9BEB2BC8F3610033F343 /* ContentModel.swift in Sources */,
 				60CD9BE72BC8F3480033F343 /* DashboardScreen.swift in Sources */,
 				60CD9BE92BC8F3530033F343 /* ChatScreen.swift in Sources */,
+				60CD9C012BC8FCAE0033F343 /* SectionTitleView.swift in Sources */,
 				60CD9BEF2BC8F3700033F343 /* HistoryModel.swift in Sources */,
 				60CD9BFA2BC8F4190033F343 /* DashboardContentModel.swift in Sources */,
 				60CD9BED2BC8F3680033F343 /* ChatModel.swift in Sources */,
