@@ -11,6 +11,15 @@
 		60CD9BD62BC8F2380033F343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD52BC8F2380033F343 /* ContentView.swift */; };
 		60CD9BD82BC8F23A0033F343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CD9BD72BC8F23A0033F343 /* Assets.xcassets */; };
 		60CD9BDC2BC8F23A0033F343 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CD9BDB2BC8F23A0033F343 /* Preview Assets.xcassets */; };
+		60CD9BE72BC8F3480033F343 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BE62BC8F3480033F343 /* DashboardScreen.swift */; };
+		60CD9BE92BC8F3530033F343 /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BE82BC8F3530033F343 /* ChatScreen.swift */; };
+		60CD9BEB2BC8F3610033F343 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BEA2BC8F3610033F343 /* ContentModel.swift */; };
+		60CD9BED2BC8F3680033F343 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BEC2BC8F3680033F343 /* ChatModel.swift */; };
+		60CD9BEF2BC8F3700033F343 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BEE2BC8F3700033F343 /* HistoryModel.swift */; };
+		60CD9BF22BC8F3AD0033F343 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = 60CD9BF12BC8F3AD0033F343 /* Dependencies */; };
+		60CD9BF42BC8F3AD0033F343 /* DependenciesMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 60CD9BF32BC8F3AD0033F343 /* DependenciesMacros */; };
+		60CD9BF72BC8F3BB0033F343 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 60CD9BF62BC8F3BB0033F343 /* CombineExt */; };
+		60CD9BFA2BC8F4190033F343 /* DashboardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +29,12 @@
 		60CD9BD72BC8F23A0033F343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SimpleAIChat.entitlements; sourceTree = "<group>"; };
 		60CD9BDB2BC8F23A0033F343 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		60CD9BE62BC8F3480033F343 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
+		60CD9BE82BC8F3530033F343 /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		60CD9BEA2BC8F3610033F343 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
+		60CD9BEC2BC8F3680033F343 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		60CD9BEE2BC8F3700033F343 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60CD9BF42BC8F3AD0033F343 /* DependenciesMacros in Frameworks */,
+				60CD9BF72BC8F3BB0033F343 /* CombineExt in Frameworks */,
+				60CD9BF22BC8F3AD0033F343 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +70,9 @@
 		60CD9BD22BC8F2380033F343 /* SimpleAIChat */ = {
 			isa = PBXGroup;
 			children = (
-				60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */,
-				60CD9BD52BC8F2380033F343 /* ContentView.swift */,
+				60CD9BE52BC8F3290033F343 /* Models */,
+				60CD9BE42BC8F3240033F343 /* Screen */,
+				60CD9BE32BC8F31D0033F343 /* App */,
 				60CD9BD72BC8F23A0033F343 /* Assets.xcassets */,
 				60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */,
 				60CD9BDA2BC8F23A0033F343 /* Preview Content */,
@@ -67,6 +86,51 @@
 				60CD9BDB2BC8F23A0033F343 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		60CD9BE22BC8F3170033F343 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		60CD9BE32BC8F31D0033F343 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */,
+				60CD9BD52BC8F2380033F343 /* ContentView.swift */,
+				60CD9BE22BC8F3170033F343 /* Core */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		60CD9BE42BC8F3240033F343 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BE62BC8F3480033F343 /* DashboardScreen.swift */,
+				60CD9BE82BC8F3530033F343 /* ChatScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		60CD9BE52BC8F3290033F343 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BF82BC8F4020033F343 /* Codable */,
+				60CD9BEA2BC8F3610033F343 /* ContentModel.swift */,
+				60CD9BEC2BC8F3680033F343 /* ChatModel.swift */,
+				60CD9BEE2BC8F3700033F343 /* HistoryModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60CD9BF82BC8F4020033F343 /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +149,11 @@
 			dependencies = (
 			);
 			name = SimpleAIChat;
+			packageProductDependencies = (
+				60CD9BF12BC8F3AD0033F343 /* Dependencies */,
+				60CD9BF32BC8F3AD0033F343 /* DependenciesMacros */,
+				60CD9BF62BC8F3BB0033F343 /* CombineExt */,
+			);
 			productName = SimpleAIChat;
 			productReference = 60CD9BD02BC8F2380033F343 /* SimpleAIChat.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +182,10 @@
 				Base,
 			);
 			mainGroup = 60CD9BC72BC8F2380033F343;
+			packageReferences = (
+				60CD9BF02BC8F3AD0033F343 /* XCRemoteSwiftPackageReference "swift-dependencies" */,
+				60CD9BF52BC8F3BB0033F343 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = 60CD9BD12BC8F2380033F343 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +214,12 @@
 			files = (
 				60CD9BD62BC8F2380033F343 /* ContentView.swift in Sources */,
 				60CD9BD42BC8F2380033F343 /* SimpleAIChatApp.swift in Sources */,
+				60CD9BEB2BC8F3610033F343 /* ContentModel.swift in Sources */,
+				60CD9BE72BC8F3480033F343 /* DashboardScreen.swift in Sources */,
+				60CD9BE92BC8F3530033F343 /* ChatScreen.swift in Sources */,
+				60CD9BEF2BC8F3700033F343 /* HistoryModel.swift in Sources */,
+				60CD9BFA2BC8F4190033F343 /* DashboardContentModel.swift in Sources */,
+				60CD9BED2BC8F3680033F343 /* ChatModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,10 +371,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leowirasanto.SimpleAIChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,10 +410,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = leowirasanto.SimpleAIChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -359,6 +440,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		60CD9BF02BC8F3AD0033F343 /* XCRemoteSwiftPackageReference "swift-dependencies" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-dependencies";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
+			};
+		};
+		60CD9BF52BC8F3BB0033F343 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		60CD9BF12BC8F3AD0033F343 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60CD9BF02BC8F3AD0033F343 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = Dependencies;
+		};
+		60CD9BF32BC8F3AD0033F343 /* DependenciesMacros */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60CD9BF02BC8F3AD0033F343 /* XCRemoteSwiftPackageReference "swift-dependencies" */;
+			productName = DependenciesMacros;
+		};
+		60CD9BF62BC8F3BB0033F343 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 60CD9BF52BC8F3BB0033F343 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 60CD9BC82BC8F2380033F343 /* Project object */;
 }
