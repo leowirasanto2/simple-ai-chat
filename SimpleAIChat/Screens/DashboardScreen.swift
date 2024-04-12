@@ -14,6 +14,12 @@ struct DashboardScreen: View {
         "What's crypto?",
         "Web3 app ideas"
     ]
+    
+    @State var exploreData = [
+        SquaredCardModel(title: "Programming", description: "Help your programming skills by using AI generated solutions", image: Image(systemName: "keyboard")),
+        SquaredCardModel(title: "Crypto", description: "AI generated cryptocurrency analysis with trained data", image: Image(systemName: "bitcoinsign.circle")),
+        SquaredCardModel(title: "Trade", description: "AI writing trading tips and trick by using trained data analysis", image: Image(systemName: "chart.xyaxis.line"))
+    ]
     @State var selectedText: String = ""
     
     var body: some View {
@@ -63,6 +69,8 @@ struct DashboardScreen: View {
                 //TODO: - go to topics
             }
             .padding()
+            
+            GroupedSquaredCardView(items: $exploreData)
         }
     }
 }
