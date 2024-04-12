@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var path: [PathRoute] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack(path: $path) {
+            DashboardScreen(path: $path)
         }
-        .padding()
     }
 }
 
