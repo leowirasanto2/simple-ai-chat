@@ -14,9 +14,9 @@ protocol DummyJsonService {
 
 class DummyJsonImplementation: DummyJsonService {
     enum ResponseType: String {
-        case inprogress = "detail-dummy-inprogress"
-        case failed = "detail-dummy-failed"
-        case success = "detail-dummy-success"
+        case failed = "failed-response"
+        case success = "success-response"
+        case emptyExplore = "success-empty-explore"
     }
     
     func get<T: Codable>(_ type: ResponseType) async throws -> T {

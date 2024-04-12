@@ -12,6 +12,9 @@
 		6013EDA32BC9150400593DEB /* RegisterDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6013EDA22BC9150400593DEB /* RegisterDependency.swift */; };
 		6013EDA52BC9153100593DEB /* DummyJsonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6013EDA42BC9153100593DEB /* DummyJsonService.swift */; };
 		6013EDA72BC9157B00593DEB /* HttpClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6013EDA62BC9157B00593DEB /* HttpClientService.swift */; };
+		6013EDAA2BC91C3A00593DEB /* success-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDA92BC91C3A00593DEB /* success-response.json */; };
+		6013EDAC2BC9266F00593DEB /* failed-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDAB2BC9266F00593DEB /* failed-response.json */; };
+		6013EDAE2BC9269800593DEB /* success-empty-explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDAD2BC9269800593DEB /* success-empty-explore.json */; };
 		60CD9BD42BC8F2380033F343 /* SimpleAIChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */; };
 		60CD9BD62BC8F2380033F343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD52BC8F2380033F343 /* ContentView.swift */; };
 		60CD9BD82BC8F23A0033F343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CD9BD72BC8F23A0033F343 /* Assets.xcassets */; };
@@ -38,6 +41,9 @@
 		6013EDA22BC9150400593DEB /* RegisterDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDependency.swift; sourceTree = "<group>"; };
 		6013EDA42BC9153100593DEB /* DummyJsonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyJsonService.swift; sourceTree = "<group>"; };
 		6013EDA62BC9157B00593DEB /* HttpClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientService.swift; sourceTree = "<group>"; };
+		6013EDA92BC91C3A00593DEB /* success-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-response.json"; sourceTree = "<group>"; };
+		6013EDAB2BC9266F00593DEB /* failed-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "failed-response.json"; sourceTree = "<group>"; };
+		6013EDAD2BC9269800593DEB /* success-empty-explore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-empty-explore.json"; sourceTree = "<group>"; };
 		60CD9BD02BC8F2380033F343 /* SimpleAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAIChatApp.swift; sourceTree = "<group>"; };
 		60CD9BD52BC8F2380033F343 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6013EDA82BC91C1700593DEB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BD72BC8F23A0033F343 /* Assets.xcassets */,
+				6013EDA92BC91C3A00593DEB /* success-response.json */,
+				6013EDAB2BC9266F00593DEB /* failed-response.json */,
+				6013EDAD2BC9269800593DEB /* success-empty-explore.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		60CD9BC72BC8F2380033F343 = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +107,12 @@
 		60CD9BD22BC8F2380033F343 /* SimpleAIChat */ = {
 			isa = PBXGroup;
 			children = (
+				60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */,
+				6013EDA82BC91C1700593DEB /* Resources */,
 				60CD9BFB2BC8F6700033F343 /* Components */,
 				60CD9BE52BC8F3290033F343 /* Models */,
 				60CD9BE42BC8F3240033F343 /* Screens */,
 				60CD9BE32BC8F31D0033F343 /* App */,
-				60CD9BD72BC8F23A0033F343 /* Assets.xcassets */,
-				60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */,
 				60CD9BDA2BC8F23A0033F343 /* Preview Content */,
 			);
 			path = SimpleAIChat;
@@ -239,7 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CD9BDC2BC8F23A0033F343 /* Preview Assets.xcassets in Resources */,
+				6013EDAC2BC9266F00593DEB /* failed-response.json in Resources */,
 				60CD9BD82BC8F23A0033F343 /* Assets.xcassets in Resources */,
+				6013EDAE2BC9269800593DEB /* success-empty-explore.json in Resources */,
+				6013EDAA2BC91C3A00593DEB /* success-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
