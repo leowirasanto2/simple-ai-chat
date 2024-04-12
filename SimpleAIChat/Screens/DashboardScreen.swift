@@ -22,7 +22,6 @@ struct DashboardScreen: View {
         SquaredCardModel(title: "Crypto", description: "AI generated cryptocurrency analysis with trained data", image: Image(systemName: "bitcoinsign.circle")),
         SquaredCardModel(title: "Trade", description: "AI writing trading tips and trick by using trained data analysis", image: Image(systemName: "chart.xyaxis.line"))
     ]
-    @State var selectedText: String = ""
     
     @Binding var path: [PathRoute]
     
@@ -75,7 +74,7 @@ struct DashboardScreen: View {
             .padding()
             
             GroupedChipTextView(texts: $chatHistory) { selected in
-                selectedText = selected
+                path = [.chatScreenWithTopic(topic: selected)]
             }
         }
     }
