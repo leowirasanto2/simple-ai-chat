@@ -20,6 +20,8 @@
 		60CD9BF42BC8F3AD0033F343 /* DependenciesMacros in Frameworks */ = {isa = PBXBuildFile; productRef = 60CD9BF32BC8F3AD0033F343 /* DependenciesMacros */; };
 		60CD9BF72BC8F3BB0033F343 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 60CD9BF62BC8F3BB0033F343 /* CombineExt */; };
 		60CD9BFA2BC8F4190033F343 /* DashboardContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */; };
+		60CD9BFD2BC8F6930033F343 /* ChipTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */; };
+		60CD9BFF2BC8F7EF0033F343 /* GroupedChipTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		60CD9BEC2BC8F3680033F343 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		60CD9BEE2BC8F3700033F343 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardContentModel.swift; sourceTree = "<group>"; };
+		60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipTextView.swift; sourceTree = "<group>"; };
+		60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedChipTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +74,9 @@
 		60CD9BD22BC8F2380033F343 /* SimpleAIChat */ = {
 			isa = PBXGroup;
 			children = (
+				60CD9BFB2BC8F6700033F343 /* Components */,
 				60CD9BE52BC8F3290033F343 /* Models */,
-				60CD9BE42BC8F3240033F343 /* Screen */,
+				60CD9BE42BC8F3240033F343 /* Screens */,
 				60CD9BE32BC8F31D0033F343 /* App */,
 				60CD9BD72BC8F23A0033F343 /* Assets.xcassets */,
 				60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */,
@@ -105,13 +110,13 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		60CD9BE42BC8F3240033F343 /* Screen */ = {
+		60CD9BE42BC8F3240033F343 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
 				60CD9BE62BC8F3480033F343 /* DashboardScreen.swift */,
 				60CD9BE82BC8F3530033F343 /* ChatScreen.swift */,
 			);
-			path = Screen;
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		60CD9BE52BC8F3290033F343 /* Models */ = {
@@ -131,6 +136,15 @@
 				60CD9BF92BC8F4190033F343 /* DashboardContentModel.swift */,
 			);
 			path = Codable;
+			sourceTree = "<group>";
+		};
+		60CD9BFB2BC8F6700033F343 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				60CD9BFC2BC8F6930033F343 /* ChipTextView.swift */,
+				60CD9BFE2BC8F7EF0033F343 /* GroupedChipTextView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +227,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				60CD9BD62BC8F2380033F343 /* ContentView.swift in Sources */,
+				60CD9BFF2BC8F7EF0033F343 /* GroupedChipTextView.swift in Sources */,
 				60CD9BD42BC8F2380033F343 /* SimpleAIChatApp.swift in Sources */,
+				60CD9BFD2BC8F6930033F343 /* ChipTextView.swift in Sources */,
 				60CD9BEB2BC8F3610033F343 /* ContentModel.swift in Sources */,
 				60CD9BE72BC8F3480033F343 /* DashboardScreen.swift in Sources */,
 				60CD9BE92BC8F3530033F343 /* ChatScreen.swift in Sources */,
