@@ -22,7 +22,7 @@ struct SquaredCardView: View {
                     item.image
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 28)
+                        .frame(height: 20)
                     
                     Text(item.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -33,6 +33,7 @@ struct SquaredCardView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .font(.caption)
                         .fontWeight(.regular)
+                        .multilineTextAlignment(.leading)
                     
                     Spacer()
                 }

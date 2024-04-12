@@ -8,29 +8,21 @@
 import SwiftUI
 
 struct DashboardScreen: View {
-    @State var chatHistory = [
-        "SwiftUI Tutorial",
-        "Crypto trading tips",
-        "What's crypto?",
-        "Web3 app ideas"
-    ]
-    @State var promptLib = [
-        "Crypto", "Web3", "SwiftUI", "Programming", "Trading", "Scalping", "Swing Trade", "Design", "Email", "Sales", "Mobile App", "Figma"
-    ]
-    @State var exploreData = [
-        SquaredCardModel(title: "Programming", description: "Help your programming skills by using AI generated solutions", image: Image(systemName: "keyboard")),
-        SquaredCardModel(title: "Crypto", description: "AI generated cryptocurrency analysis with trained data", image: Image(systemName: "bitcoinsign.circle")),
-        SquaredCardModel(title: "Trade", description: "AI writing trading tips and trick by using trained data analysis", image: Image(systemName: "chart.xyaxis.line"))
-    ]
-    
+    @EnvironmentObject var contentModel: ContentModel
     @Binding var path: [PathRoute]
     
     var body: some View {
         ScrollView {
             newChatBtn
-            chatHistorySection
-            exploreMoreView
-            promptLibrary
+            if contentModel.dashboardContents?.data?.historyHighlight?.isEmpty == false {
+                chatHistorySection
+            }
+            if contentModel.dashboardContents?.data?.exploreDataHighlight?.isEmpty == false {
+                exploreMoreView
+            }
+            if contentModel.dashboardContents?.data?.promptLibrary?.isEmpty == false {
+                promptLibrary
+            }
         }
         .frame(maxWidth: .infinity)
         .background(.linearGradient(colors: [.black, .gray], startPoint: .top, endPoint: .bottom))
@@ -45,6 +37,19 @@ struct DashboardScreen: View {
             case .historyScreen:
                 Text("history Screen")
             }
+        }
+        .task {
+            do {
+                try await contentModel.loadContents()
+            } catch {
+                print("unable to load contents")
+            }
+        }
+        .onAppear {
+            contentModel.onAppear()
+        }
+        .onDisappear {
+            contentModel.onDisappear()
         }
     }
     
@@ -73,8 +78,10 @@ struct DashboardScreen: View {
             }
             .padding()
             
-            GroupedChipTextView(texts: $chatHistory) { selected in
-                path = [.chatScreenWithTopic(topic: selected)]
+            if let texts = contentModel.dashboardContents?.data?.historyHighlight {
+                GroupedChipTextView(texts: .constant(texts)) { selected in
+                    path = [.chatScreenWithTopic(topic: selected)]
+                }
             }
         }
     }
@@ -86,7 +93,7 @@ struct DashboardScreen: View {
             }
             .padding()
             
-            GroupedSquaredCardView(items: $exploreData) { model in
+            GroupedSquaredCardView(items: .constant(contentModel.getExploreData())) { model in
                 path = [.chatScreenWithTopic(topic: model.title)]
             }
         }
@@ -95,10 +102,12 @@ struct DashboardScreen: View {
     private var promptLibrary: some View {
         VStack {
             SectionTitleView(title: "Prompt library") {}
-            .padding()
+                .padding()
             
-            MultiRowGroupedChipView(items: $promptLib, maxItemPerRow: 4) { selected in
-                path = [.chatScreenWithTopic(topic: selected)]
+            if let texts = contentModel.dashboardContents?.data?.promptLibrary {
+                MultiRowGroupedChipView(items: .constant(texts), maxItemPerRow: 4) { selected in
+                    path = [.chatScreenWithTopic(topic: selected)]
+                }
             }
         }
     }
