@@ -15,6 +15,7 @@
 		6013EDAA2BC91C3A00593DEB /* success-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDA92BC91C3A00593DEB /* success-response.json */; };
 		6013EDAC2BC9266F00593DEB /* failed-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDAB2BC9266F00593DEB /* failed-response.json */; };
 		6013EDAE2BC9269800593DEB /* success-empty-explore.json in Resources */ = {isa = PBXBuildFile; fileRef = 6013EDAD2BC9269800593DEB /* success-empty-explore.json */; };
+		60434B522BE4E31600729F4A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 60434B512BE4E31600729F4A /* .gitignore */; };
 		605F3E3D2BC92EC3001A96D0 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 605F3E3C2BC92EC3001A96D0 /* OpenAISwift */; };
 		605F3E3F2BC95A5D001A96D0 /* BubbleChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605F3E3E2BC95A5D001A96D0 /* BubbleChatView.swift */; };
 		60CD9BD42BC8F2380033F343 /* SimpleAIChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */; };
@@ -46,6 +47,7 @@
 		6013EDA92BC91C3A00593DEB /* success-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-response.json"; sourceTree = "<group>"; };
 		6013EDAB2BC9266F00593DEB /* failed-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "failed-response.json"; sourceTree = "<group>"; };
 		6013EDAD2BC9269800593DEB /* success-empty-explore.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "success-empty-explore.json"; sourceTree = "<group>"; };
+		60434B512BE4E31600729F4A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		605F3E3E2BC95A5D001A96D0 /* BubbleChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleChatView.swift; sourceTree = "<group>"; };
 		60CD9BD02BC8F2380033F343 /* SimpleAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAIChatApp.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		60CD9BC72BC8F2380033F343 = {
 			isa = PBXGroup;
 			children = (
+				60434B512BE4E31600729F4A /* .gitignore */,
 				60CD9BD22BC8F2380033F343 /* SimpleAIChat */,
 				60CD9BD12BC8F2380033F343 /* Products */,
 			);
@@ -266,6 +269,7 @@
 				6013EDAC2BC9266F00593DEB /* failed-response.json in Resources */,
 				60CD9BD82BC8F23A0033F343 /* Assets.xcassets in Resources */,
 				6013EDAE2BC9269800593DEB /* success-empty-explore.json in Resources */,
+				60434B522BE4E31600729F4A /* .gitignore in Resources */,
 				6013EDAA2BC91C3A00593DEB /* success-response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
