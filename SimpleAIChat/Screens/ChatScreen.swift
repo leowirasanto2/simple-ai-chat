@@ -14,23 +14,8 @@ struct ChatScreen: View {
     
     var body: some View {
         VStack {
-            HStack(spacing: 16) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "arrow.left.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 40)
-                        .foregroundStyle(.white)
-                }
-                
-                Text("New Chat")
-                    .font(.largeTitle)
-                    .foregroundStyle(.white)
-                    .fontWeight(.semibold)
-                
-                Spacer()
+            NavigationTitleView(title: "New chat") {
+                dismiss()
             }
             .padding(.horizontal)
             ScrollView {
@@ -76,9 +61,7 @@ struct ChatScreen: View {
                                 .padding()
                         } else {
                             Image(systemName: "paperplane.fill")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 25)
+                                .imageScale(.medium)
                                 .foregroundStyle(.white)
                                 .padding()
                         }
