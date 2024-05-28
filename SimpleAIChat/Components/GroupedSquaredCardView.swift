@@ -16,7 +16,7 @@ struct SquaredCardModel {
 struct GroupedSquaredCardView: View {
     var items: [SquaredCardModel]
     var cardColor: Color = .gray
-    var foregroundStyle: Color = .white
+    var fgColor: Color = .white
     var icon: Image = Image(systemName: "circle")
     var onTap: (SquaredCardModel) -> ()
     
@@ -24,7 +24,7 @@ struct GroupedSquaredCardView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(items, id: \.title) { item in
-                    SquaredCardView(item: item, cardColor: cardColor, foregroundStyle: foregroundStyle, onTap: onTap)
+                    SquaredCardView(item: item, cardColor: cardColor, fgColor: fgColor, onTap: onTap)
                 }
             }
             .padding(.horizontal, 16)

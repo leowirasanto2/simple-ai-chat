@@ -10,7 +10,7 @@ import SwiftUI
 struct SquaredCardView: View {
     var item: SquaredCardModel
     var cardColor: Color = .gray
-    var foregroundStyle: Color = .white
+    var fgColor: Color = .white
     var onTap: (SquaredCardModel) -> ()
     
     var body: some View {
@@ -37,7 +37,7 @@ struct SquaredCardView: View {
                 }
                 .padding()
             }
-            .foregroundStyle(foregroundStyle)
+            .foregroundStyle(fgColor)
             .frame(width: 150, height: 150)
             .background(cardColor)
         .clipShape(RoundedRectangle(cornerRadius: 10))

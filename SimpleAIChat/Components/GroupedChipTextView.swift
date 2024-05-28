@@ -9,15 +9,15 @@ import SwiftUI
 
 struct GroupedChipTextView: View {
     var texts: [String]
+    var bgColor: Color = .white
+    var fgColor: Color = .black
     var onTap: (String) -> ()
-    var chipBackgroundColor: Color = .white
-    var chipForeground: Color = .black
     
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
                 ForEach(texts, id: \.self) { text in
-                    ChipTextView(text: text, onTap: onTap, textColor: chipForeground, bgColor: chipBackgroundColor)
+                    ChipTextView(text: text, onTap: onTap, fgColor: fgColor, bgColor: bgColor)
                 }
             }
             .padding(.horizontal, 16)

@@ -10,14 +10,14 @@ import SwiftUI
 struct MultiRowGroupedChipView: View {
     @Binding var items: [String]
     var maxItemPerRow: Int = 3
+    var bgColor: Color = .white
+    var fgColor: Color = .black
     var onTap: (String) -> ()
-    var chipBackgroundColor: Color = .white
-    var chipForeground: Color = .black
     
     var body: some View {
         VStack {
             ForEach(Array(groupedItems), id: \.key) {
-                GroupedChipTextView(texts: $0.value, onTap: onTap)
+                GroupedChipTextView(texts: $0.value, bgColor: bgColor, fgColor: fgColor, onTap: onTap)
             }
         }
     }

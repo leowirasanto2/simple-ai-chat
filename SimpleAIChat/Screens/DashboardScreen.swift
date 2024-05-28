@@ -13,19 +13,41 @@ struct DashboardScreen: View {
     
     var body: some View {
         ScrollView {
-            newChatBtn
-            if contentModel.dashboardContents?.data?.historyHighlight?.isEmpty == false {
-                chatHistorySection
-            }
-            if contentModel.dashboardContents?.data?.exploreDataHighlight?.isEmpty == false {
-                exploreMoreView
-            }
-            if contentModel.dashboardContents?.data?.promptLibrary?.isEmpty == false {
-                promptLibrary
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Welcome!")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .padding()
+                if contentModel.dashboardContents?.data?.historyHighlight?.isEmpty == false {
+                    chatHistorySection
+                }
+                if contentModel.dashboardContents?.data?.exploreDataHighlight?.isEmpty == false {
+                    exploreMoreView
+                }
+                if contentModel.dashboardContents?.data?.promptLibrary?.isEmpty == false {
+                    promptLibrary
+                }
             }
         }
-        .frame(maxWidth: .infinity)
-        .background(.linearGradient(colors: [.black, .gray], startPoint: .top, endPoint: .bottom))
+        .overlay {
+            GeometryReader { geo in
+                Button {
+                    path = [.chatScreen]
+                } label: {
+                    HStack(alignment: .center) {
+                        Text("Chat Now")
+                            .fontWeight(.semibold)
+                        Image(systemName: "quote.bubble.fill")
+                    }
+                    .foregroundStyle(.white)
+                    .padding()
+                    .background(.green)
+                    .clipShape(RoundedRectangle(cornerRadius: .infinity))
+                }
+                .frame(maxWidth: geo.size.width / 2)
+                .position(x: geo.size.width / 2,y: geo.size.height - 32)
+            }
+        }
         .navigationDestination(for: PathRoute.self) { destination in
             switch destination {
             case .chatScreen:
@@ -50,33 +72,15 @@ struct DashboardScreen: View {
         }
     }
     
-    private var newChatBtn: some View {
-        Button {
-            path = [.chatScreen]
-        } label: {
-            HStack {
-                Spacer()
-                Text("New Chat")
-                    .foregroundStyle(.black)
-                    .fontWeight(.semibold)
-                    .padding()
-                Spacer()
-            }
-        }
-        .background(.white)
-        .clipShape(RoundedRectangle(cornerRadius: .infinity))
-        .padding()
-    }
-    
     private var chatHistorySection: some View {
         VStack {
-            SectionTitleView(title: "Chat History") {
+            SectionTitleView(tintColor: .black, title: "Chat History") {
                 path = [.historyScreen]
             }
-            .padding()
+            .padding(.horizontal)
             
             if let texts = contentModel.dashboardContents?.data?.historyHighlight {
-                GroupedChipTextView(texts: texts) { selected in
+                GroupedChipTextView(texts: texts, bgColor: .black, fgColor: .white) { selected in
                     path = [.chatScreenWithTopic(topic: selected)]
                 }
             }
@@ -85,12 +89,12 @@ struct DashboardScreen: View {
     
     private var exploreMoreView: some View {
         VStack {
-            SectionTitleView(title: "Explore More") {
+            SectionTitleView(tintColor: .black, title: "Explore More") {
                 path = [.exploreScreen]
             }
-            .padding()
+            .padding(.horizontal)
             
-            GroupedSquaredCardView(items: contentModel.getExploreData()) { model in
+            GroupedSquaredCardView(items: contentModel.getExploreData(), cardColor: .black) { model in
                 path = [.chatScreenWithTopic(topic: model.title)]
             }
         }
@@ -98,11 +102,11 @@ struct DashboardScreen: View {
     
     private var promptLibrary: some View {
         VStack {
-            SectionTitleView(title: "Prompt library") {}
-                .padding()
+            SectionTitleView(tintColor: .black, title: "Prompt library") {}
+                .padding(.horizontal)
             
             if let texts = contentModel.dashboardContents?.data?.promptLibrary {
-                MultiRowGroupedChipView(items: .constant(texts), maxItemPerRow: 4) { selected in
+                MultiRowGroupedChipView(items: .constant(texts), maxItemPerRow: 4, bgColor: .black, fgColor: .white) { selected in
                     path = [.chatScreenWithTopic(topic: selected)]
                 }
             }

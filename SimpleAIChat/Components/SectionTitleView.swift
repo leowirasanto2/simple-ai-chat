@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SectionTitleView: View {
+    var tintColor: Color = .white
     var title: String
     var icon: Image?
     var onTapped: () -> ()
@@ -29,7 +30,7 @@ struct SectionTitleView: View {
                 }
             }
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(tintColor)
     }
 }
 
