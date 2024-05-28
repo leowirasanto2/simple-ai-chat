@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SquaredCardView: View {
-    @Binding var item: SquaredCardModel
+    var item: SquaredCardModel
     var cardColor: Color = .gray
     var foregroundStyle: Color = .white
     var onTap: (SquaredCardModel) -> ()
@@ -20,22 +20,20 @@ struct SquaredCardView: View {
             VStack {
                 VStack(alignment: .leading, spacing: 8) {
                     item.image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 20)
+                        .imageScale(.large)
                     
-                    Text(item.title)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.headline)
-                        .fontWeight(.semibold)
+                    Group {
+                        Text(item.title)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                        
+                        Text(item.description)
+                            .font(.caption)
+                            .fontWeight(.regular)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .multilineTextAlignment(.leading)
                     
-                    Text(item.description)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.caption)
-                        .fontWeight(.regular)
-                        .multilineTextAlignment(.leading)
-                    
-                    Spacer()
                 }
                 .padding()
             }
@@ -48,5 +46,5 @@ struct SquaredCardView: View {
 }
 
 #Preview {
-    SquaredCardView(item: .constant(SquaredCardModel(title: "This is title", description: "This is the placeholder of description", image: Image(systemName: "keyboard"))), onTap: { _ in })
+    SquaredCardView(item: SquaredCardModel(title: "This is title", description: "This is the placeholder of description", image: Image(systemName: "keyboard")), onTap: { _ in })
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChipTextView: View {
-    @Binding var text: String
+    var text: String
     var onTap: (String) -> ()
     var textColor: Color = .black
     var bgColor: Color = .white
@@ -19,18 +19,18 @@ struct ChipTextView: View {
                 onTap(text)
             } label: {
                 Text(text)
-                    .padding()
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                     .font(.caption)
                     .fontWeight(.medium)
                     .foregroundStyle(textColor)
                     .background(bgColor)
             }
-            .frame(height: 40)
-            .clipShape(RoundedRectangle(cornerRadius: 20))
+            .clipShape(RoundedRectangle(cornerRadius: .infinity))
         }
     }
 }
 
 #Preview {
-    ChipTextView(text: .constant("Text 1"), onTap: { _ in })
+    ChipTextView(text: "Text 1", onTap: { _ in })
+        .background(.black)
 }

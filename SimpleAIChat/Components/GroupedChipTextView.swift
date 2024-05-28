@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GroupedChipTextView: View {
-    @Binding var texts: [String]
+    var texts: [String]
     var onTap: (String) -> ()
     var chipBackgroundColor: Color = .white
     var chipForeground: Color = .black
@@ -16,7 +16,7 @@ struct GroupedChipTextView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                ForEach($texts, id: \.self) { text in
+                ForEach(texts, id: \.self) { text in
                     ChipTextView(text: text, onTap: onTap, textColor: chipForeground, bgColor: chipBackgroundColor)
                 }
             }
@@ -27,5 +27,6 @@ struct GroupedChipTextView: View {
 }
 
 #Preview {
-    GroupedChipTextView(texts: .constant(["This is the text 1", "Also text 2", "Mentioning text 3", "Don't forget the 4"]), onTap: { _ in})
+    GroupedChipTextView(texts: ["This is the text 1", "Also text 2", "Mentioning text 3", "Don't forget the 4"], onTap: { _ in})
+        .background(.black)
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SectionTitleView: View {
     var title: String
-    var icon: Image? = Image(systemName: "arrow.right.circle.fill")
+    var icon: Image?
     var onTapped: () -> ()
     
     var body: some View {
@@ -17,7 +17,6 @@ struct SectionTitleView: View {
             Text(title)
                 .font(.headline)
                 .fontWeight(.semibold)
-                .foregroundStyle(.white)
             
             Spacer()
             
@@ -26,15 +25,15 @@ struct SectionTitleView: View {
                     onTapped()
                 } label: {
                     icon!
-                        .resizable()
-                        .foregroundStyle(.white)
-                        .frame(width: 40, height: 40)
+                        .imageScale(.large)
                 }
             }
         }
+        .foregroundStyle(.white)
     }
 }
 
 #Preview {
-    SectionTitleView(title: "", onTapped: {})
+    SectionTitleView(title: "Title preview", icon: Image(systemName: "arrow.right.circle.fill"), onTapped: {})
+        .background(.black)
 }

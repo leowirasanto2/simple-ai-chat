@@ -16,8 +16,8 @@ struct MultiRowGroupedChipView: View {
     
     var body: some View {
         VStack {
-            ForEach(Array(groupedItems), id: \.key) { (_, _items) in
-                GroupedChipTextView(texts: .constant(_items), onTap: onTap)
+            ForEach(Array(groupedItems), id: \.key) {
+                GroupedChipTextView(texts: $0.value, onTap: onTap)
             }
         }
     }
@@ -40,4 +40,5 @@ struct MultiRowGroupedChipView: View {
 
 #Preview {
     MultiRowGroupedChipView(items: .constant(["a", "b", "b", "b", "b", "b", "b", "b", "b"]), onTap: { _ in })
+        .background(.black)
 }

@@ -40,11 +40,7 @@ struct DashboardScreen: View {
             }
         }
         .task {
-            do {
-                try await contentModel.loadContents()
-            } catch {
-                print("unable to load contents")
-            }
+            await contentModel.fetchContents()
         }
         .onAppear {
             contentModel.onAppear()
@@ -80,7 +76,7 @@ struct DashboardScreen: View {
             .padding()
             
             if let texts = contentModel.dashboardContents?.data?.historyHighlight {
-                GroupedChipTextView(texts: .constant(texts)) { selected in
+                GroupedChipTextView(texts: texts) { selected in
                     path = [.chatScreenWithTopic(topic: selected)]
                 }
             }
@@ -94,7 +90,7 @@ struct DashboardScreen: View {
             }
             .padding()
             
-            GroupedSquaredCardView(items: .constant(contentModel.getExploreData())) { model in
+            GroupedSquaredCardView(items: contentModel.getExploreData()) { model in
                 path = [.chatScreenWithTopic(topic: model.title)]
             }
         }

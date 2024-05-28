@@ -34,7 +34,15 @@ class ContentModel: ObservableObject {
             image: Image(systemName: $0.imageUrl)) }
     }
     
-    func loadContents() async throws {
+    func fetchContents() async {
+        do {
+            dashboardContents = try await dummyJsonService.get(.success) as DashboardContentModel
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func loadContents() async throws {
         let content: DashboardContentModel = try await dummyJsonService.get(.success)
         dashboardContents = content
     }

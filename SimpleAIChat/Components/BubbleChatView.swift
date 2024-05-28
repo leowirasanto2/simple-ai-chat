@@ -45,6 +45,7 @@ extension ChatRole {
 struct BubbleChatView: View {
     var message: String = "This is the chat is the chat is the chat is the chat is the chat"
     var role: BubbleChatRole = .replier
+    
     private var formattedTimeChat: String {
         let date = Date()
         let formatter = DateFormatter()
@@ -68,9 +69,9 @@ struct BubbleChatView: View {
     private var bubbleChatView: some View {
         VStack(alignment: role.alignment.0) {
             Text(message)
+                .padding()
                 .font(.callout)
                 .multilineTextAlignment(role.alignment.1)
-                .padding()
                 .background(role.bubbleColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .foregroundStyle(.black)
@@ -79,9 +80,10 @@ struct BubbleChatView: View {
                 .foregroundStyle(.white)
         }
     }
-    
 }
 
 #Preview {
     BubbleChatView()
+        .padding()
+        .background(.black)
 }
