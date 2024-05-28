@@ -10,11 +10,13 @@ import SwiftUI
 struct ChatScreen: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var chatModel: ChatModel
+    @Binding var path: [PathRoute]
     @State var promptText: String = ""
+    var topic: String? = nil
     
     var body: some View {
         VStack {
-            NavigationTitleView(tintColor: .black, title: "New chat") {
+            NavigationTitleView(tintColor: .black, title: topic ?? "New chat") {
                 dismiss()
             }
             .padding(.horizontal)
@@ -80,6 +82,6 @@ struct ChatScreen: View {
 }
 
 #Preview {
-    ChatScreen()
+    ChatScreen(path: .constant([.chatScreenWithTopic(topic: "Crypto")]))
         .environmentObject(ChatModel())
 }

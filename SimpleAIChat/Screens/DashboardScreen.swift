@@ -51,10 +51,11 @@ struct DashboardScreen: View {
         .navigationDestination(for: PathRoute.self) { destination in
             switch destination {
             case .chatScreen:
-                ChatScreen()
+                ChatScreen(path: $path)
                     .environmentObject(ChatModel())
             case .chatScreenWithTopic(let topic):
-                Text("chat screen - \(topic)")
+                ChatScreen(path: $path, topic: topic)
+                    .environmentObject(ChatModel())
             case .exploreScreen:
                 Text("explore Screen")
             case .historyScreen:
