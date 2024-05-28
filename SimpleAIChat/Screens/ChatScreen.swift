@@ -10,11 +10,11 @@ import SwiftUI
 struct ChatScreen: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var chatModel: ChatModel
-    @State var text: String = ""
+    @State var promptText: String = ""
     
     var body: some View {
         VStack {
-            NavigationTitleView(title: "New chat") {
+            NavigationTitleView(tintColor: .black, title: "New chat") {
                 dismiss()
             }
             .padding(.horizontal)
@@ -40,23 +40,22 @@ struct ChatScreen: View {
             
             VStack {
                 HStack {
-                    TextField("Type here...", text: $text)
-                        .foregroundStyle(.white)
+                    TextField("Type here...", text: $promptText)
+                        .foregroundStyle(.black)
                         .padding()
-                        .background(Color.secondary.opacity(0.5))
+                        .background(Color.secondary.opacity(0.2))
                         .clipShape(RoundedRectangle(cornerRadius: .infinity))
     
                     Button {
-                        guard !text.isEmpty && !chatModel.isSending else { return }
+                        guard !promptText.isEmpty && !chatModel.isSending else { return }
                         Task {
-                            await chatModel.sendDummy(text)
-                            text = ""
+                            await chatModel.sendDummy(promptText)
+                            promptText = ""
                         }
                     } label: {
                         if chatModel.isSending {
                             ProgressView()
-                                .scaledToFit()
-                                .frame(height: 25)
+                                .imageScale(.medium)
                                 .foregroundStyle(.white)
                                 .padding()
                         } else {
@@ -66,7 +65,7 @@ struct ChatScreen: View {
                                 .padding()
                         }
                     }
-                    .background(Color.secondary.opacity(0.5))
+                    .background(Color.green)
                     .clipShape(Circle())
                 }
                 .padding()
@@ -74,7 +73,6 @@ struct ChatScreen: View {
             .clipShape(UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(topLeading: 10, topTrailing: 10)))
         }
         .toolbar(.hidden, for: .navigationBar)
-        .background(.linearGradient(colors: [.black, .gray], startPoint: .top, endPoint: .bottom))
         .onAppear {
             chatModel.setup()
         }

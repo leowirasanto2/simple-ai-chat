@@ -26,7 +26,7 @@ enum BubbleChatRole: Equatable {
         case .sender:
             return .gray
         case .replier:
-            return .white
+            return .green
         }
     }
 }
@@ -43,8 +43,8 @@ extension ChatRole {
 }
 
 struct BubbleChatView: View {
-    var message: String = "This is the chat is the chat is the chat is the chat is the chat"
-    var role: BubbleChatRole = .replier
+    var message: String
+    var role: BubbleChatRole
     
     private var formattedTimeChat: String {
         let date = Date()
@@ -69,21 +69,20 @@ struct BubbleChatView: View {
     private var bubbleChatView: some View {
         VStack(alignment: role.alignment.0) {
             Text(message)
+                .colorInvert()
                 .padding()
                 .font(.callout)
                 .multilineTextAlignment(role.alignment.1)
                 .background(role.bubbleColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .foregroundStyle(.black)
             Text(formattedTimeChat)
                 .font(.footnote)
-                .foregroundStyle(.white)
+                .foregroundStyle(role.bubbleColor)
         }
     }
 }
 
 #Preview {
-    BubbleChatView()
+    BubbleChatView(message: "This is the chat is the chat is the chat is the chat is the chat", role: .replier)
         .padding()
-        .background(.black)
 }

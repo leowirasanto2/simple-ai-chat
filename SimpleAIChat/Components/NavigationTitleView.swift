@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct NavigationTitleView: View {
+    var tintColor: Color = .white
     var title: String
     var onBackTapped: () -> Void
     
     var body: some View {
         HStack(alignment: .center, spacing: 16) {
             Button(action: onBackTapped, label: {
-                Image(systemName: "arrow.left.circle.fill")
+                Image(systemName: "arrow.left")
                     .imageScale(.large)
             })
             Text(title)
@@ -22,7 +23,7 @@ struct NavigationTitleView: View {
                 .fontWeight(.semibold)
         }
         .padding(.vertical)
-        .foregroundStyle(.white)
+        .foregroundStyle(tintColor)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
