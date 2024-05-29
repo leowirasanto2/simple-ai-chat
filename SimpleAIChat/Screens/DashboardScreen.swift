@@ -74,12 +74,9 @@ struct DashboardScreen: View {
     }
     
     private var chatHistorySection: some View {
-        VStack {
-            SectionTitleView(tintColor: .black, title: "Chat History") {
-                path = [.historyScreen]
-            }
-            .padding(.horizontal)
-            
+        SectionContainer(title: "Chat history") {
+            path = [.historyScreen]
+        } content: {
             if let texts = contentModel.dashboardContents?.data?.historyHighlight {
                 GroupedChipTextView(texts: texts, bgColor: .black, fgColor: .white) { selected in
                     path = [.chatScreenWithTopic(topic: selected)]
@@ -89,12 +86,9 @@ struct DashboardScreen: View {
     }
     
     private var exploreMoreView: some View {
-        VStack {
-            SectionTitleView(tintColor: .black, title: "Explore More") {
-                path = [.exploreScreen]
-            }
-            .padding(.horizontal)
-            
+        SectionContainer(title: "Explore more") {
+            path = [.exploreScreen]
+        } content: {
             GroupedSquaredCardView(items: contentModel.getExploreData(), cardColor: .black) { model in
                 path = [.chatScreenWithTopic(topic: model.title)]
             }
@@ -103,12 +97,12 @@ struct DashboardScreen: View {
     
     private var promptLibrary: some View {
         VStack {
-            SectionTitleView(tintColor: .black, title: "Prompt library") {}
-                .padding(.horizontal)
-            
-            if let texts = contentModel.dashboardContents?.data?.promptLibrary {
-                MultiRowGroupedChipView(items: .constant(texts), maxItemPerRow: 4, bgColor: .black, fgColor: .white) { selected in
-                    path = [.chatScreenWithTopic(topic: selected)]
+            SectionContainer(title: "Prompt library") {
+            } content: {
+                if let texts = contentModel.dashboardContents?.data?.promptLibrary {
+                    MultiRowGroupedChipView(items: .constant(texts), maxItemPerRow: 4, bgColor: .black, fgColor: .white) { selected in
+                        path = [.chatScreenWithTopic(topic: selected)]
+                    }
                 }
             }
         }
