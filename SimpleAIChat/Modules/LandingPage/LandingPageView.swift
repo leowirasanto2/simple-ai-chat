@@ -7,25 +7,109 @@
 import SwiftUI
 
 struct LandingPageView: View {
+    @State private var topics: [String] = [
+        "Travel",
+        "Food",
+        "Technology",
+        "Health",
+        "Education"
+    ]
+    
+    @State private var suggestions = [Suggestion]().dummySuggestions
+    @State private var recentChats = Activity.dummyRecentChats
+    
     var body: some View {
-        ScrollView {
-            LazyVStack(alignment: .leading, spacing: 16) {
-                SectionView(title: "Slider") {
-                    Text("Slider content goes here")
+        ZStack {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 32) {
+                    SectionView(title: "Slider") {
+                        Text("Slider content goes here")
+                    }
+                    SectionView(title: "Try these chats") {
+                        carouselSuggestions
+                    }
+                    SectionView(title: "Topics you might like") {
+                        topicChips
+                    }
+                    SectionView(title: "Recent chats") {
+                        recentChatView
+                    }
                 }
-                SectionView(title: "Carousel suggestions, squared") {
-                    Text("Carousel suggestions container")
+                .padding()
+            }
+            .scrollIndicators(.hidden)
+            .scrollClipDisabled()
+            
+            VStack {
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    HStack {
+                        Text("Start a new chat")
+                            .fontWeight(.bold)
+                        
+                        Image(systemName: "sparkles")
+                            .imageScale(.medium)
+                    }
+                    .padding()
+                    .background(.green)
+                    .clipShape(RoundedRectangle(cornerRadius: 32))
+                    .elevate()
                 }
-                SectionView(title: "Topic libraries, to help start chat") {
-                    Text("Topic libraries container")
-                }
-                SectionView {
-                    Text("Chat history list")
-                    Button("Start new chat", action: {})
-                        .padding(.top, 8)
+                .foregroundStyle(.white)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var topicChips: some View {
+        ScrollView(.horizontal) {
+            LazyHStack {
+                ForEach(topics, id: \.self) { topic in
+                    ChipView(text: topic, action: {})
                 }
             }
-            .padding()
+        }
+        .scrollIndicators(.hidden)
+        .scrollClipDisabled()
+    }
+    
+    @ViewBuilder
+    private var carouselSuggestions: some View {
+        ScrollView(.horizontal) {
+            LazyHStack {
+                ForEach(suggestions, id: \.id) { suggestion in
+                    SquaredCardView(
+                        icon: .init(systemName: suggestion.iconName),
+                        title: suggestion.title,
+                        description: suggestion.subTitle
+                    )
+                }
+            }
+        }
+        .scrollIndicators(.hidden)
+        .scrollClipDisabled()
+    }
+    
+    @ViewBuilder
+    private var recentChatView: some View {
+        LazyVStack(spacing: 16) {
+            ForEach(recentChats, id: \.id) { chat in
+                ListItem(
+                    title: chat.title,
+                    subtitle: chat.subTitle,
+                    leading: {},
+                    trailing: {
+                        //three dot icon vertical
+                        Image(systemName: "chevron.right")
+                            .foregroundStyle(.secondary)
+                            .imageScale(.small)
+                    }
+                )
+                Divider()
+            }
         }
     }
 }
