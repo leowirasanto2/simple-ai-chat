@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 extension View {
     func elevate() -> some View {
         self.shadow(color: .gray.opacity(0.2), radius: 10)
