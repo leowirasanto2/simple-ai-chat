@@ -8,13 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var path: [PathRoute] = []
     
     var body: some View {
-        NavigationStack(path: $path) {
-            DashboardScreen(path: $path)
-                .environmentObject(ContentModel())
-        }
+        LandingPageView()
     }
 }
 
