@@ -2,49 +2,44 @@
 //  SquaredCardView.swift
 //  SimpleAIChat
 //
-//  Created by Leo Wirasanto Laia on 12/04/24.
+//  Created by Leo Wirasanto Laia on 03/04/25.
 //
 
 import SwiftUI
 
 struct SquaredCardView: View {
-    var item: SquaredCardModel
-    var cardColor: Color = .gray
-    var fgColor: Color = .white
-    var onTap: (SquaredCardModel) -> ()
+    enum Constants {
+        static let cardSize: CGFloat = 120
+    }
+    
+    var icon: Image
+    var title: String
+    var description: String
     
     var body: some View {
-        Button {
-            onTap(item)
-        } label: {
-            VStack {
-                VStack(alignment: .leading, spacing: 8) {
-                    item.image
-                        .imageScale(.large)
-                    
-                    Group {
-                        Text(item.title)
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                        
-                        Text(item.description)
-                            .font(.caption)
-                            .fontWeight(.regular)
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .multilineTextAlignment(.leading)
-                    
-                }
-                .padding()
-            }
-            .foregroundStyle(fgColor)
-            .frame(width: 150, height: 150)
-            .background(cardColor)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        VStack(alignment: .leading, spacing: 4) {
+            icon
+            Text(title)
+                .font(.headline)
+                .lineLimit(1)
+            Text(description)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .lineLimit(3)
+                .multilineTextAlignment(.leading)
         }
+        .frame(width: Constants.cardSize, height: Constants.cardSize)
+        .padding()
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .elevate()
     }
 }
 
 #Preview {
-    SquaredCardView(item: SquaredCardModel(title: "This is title", description: "This is the placeholder of description", image: Image(systemName: "keyboard")), onTap: { _ in })
+    SquaredCardView(
+        icon: Image(systemName: "star"),
+        title: "Example Title",
+        description: "This is a short description that is limited to three lines."
+    )
 }
