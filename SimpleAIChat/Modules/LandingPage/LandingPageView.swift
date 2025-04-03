@@ -17,15 +17,23 @@ struct LandingPageView: View {
     
     @State private var suggestions = [Suggestion]().dummySuggestions
     @State private var recentChats = Activity.dummyRecentChats
+    @State private var showingChatBottomSheet = false
+    @State private var selectedChats: [Chat] = []
     
     var body: some View {
         ZStack {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 32) {
-                    SectionView(title: "Slider") {
-                        Text("Slider content goes here")
+                    HStack {
+                        Text("SimpleAIChat")
+                            .font(.largeTitle)
+                            .fontWeight(.bold)
+                        Image(systemName: "sparkles")
+                            .imageScale(.large)
+                            
                     }
-                    SectionView(title: "Try these chats") {
+
+                    SectionView(title: "Try to start a conversation") {
                         carouselSuggestions
                     }
                     SectionView(title: "Topics you might like") {
@@ -44,7 +52,7 @@ struct LandingPageView: View {
                 Spacer()
                 
                 Button {
-                    
+                    showingChatBottomSheet = true
                 } label: {
                     HStack {
                         Text("Start a new chat")
@@ -59,6 +67,16 @@ struct LandingPageView: View {
                     .elevate()
                 }
                 .foregroundStyle(.white)
+            }
+        }
+        .sheet(isPresented: $showingChatBottomSheet) {
+            ChatPageView(messages: selectedChats) {
+                showingChatBottomSheet.toggle()
+            }
+            .presentationDetents([.large])
+            .onAppear {
+                // Reset selected chats when the sheet is dismissed
+                selectedChats = []
             }
         }
     }
@@ -108,6 +126,14 @@ struct LandingPageView: View {
                             .imageScale(.small)
                     }
                 )
+                .onTapGesture {
+                    self.selectedChats = chat.previousChat
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        self.showingChatBottomSheet = true
+                    }
+                }
+                
                 Divider()
             }
         }

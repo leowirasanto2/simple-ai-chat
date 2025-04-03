@@ -20,6 +20,12 @@ enum ActorRole {
     case aiAssistant
 }
 
+extension Actor: Equatable {
+    static func == (lhs: Actor, rhs: Actor) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 extension Actor {
     static let dummyUser = Actor(
         name: "User",
