@@ -36,4 +36,8 @@ class LandingPageViewModel: ObservableObject {
         self.suggestions = [Suggestion]().dummySuggestions
         self.recentChats = Activity.dummyRecentChats
     }
+    
+    func resetSelectedChats () {
+        self.selectedChats.removeAll()
+    }
 }
