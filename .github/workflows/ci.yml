@@ -16,18 +16,20 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
 
-      - name: Set Xcode version (adjust if needed)
-        run: sudo xcode-select -s /Applications/Xcode_15.3.app
+      - name: Set Xcode version
+        run: sudo /usr/bin/xcode-select -s /Applications/Xcode.app
 
-      - name: Clean derived data
-        run: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData
+      - name: Clean Derived Data
+        run: rm -rf ~/Library/Developer/Xcode/DerivedData
 
       - name: Run Unit Tests
+        env:
+          LANG: en_US.UTF-8
+          LC_ALL: en_US.UTF-8
         run: |
           xcodebuild \
             -project SimpleAIChat.xcodeproj \
             -scheme SimpleAIChat \
             -destination 'platform=iOS Simulator,name=iPhone 14' \
             -enableCodeCoverage YES \
-            clean test | tee xcodebuild.log | xcpretty && exit ${PIPESTATUS[0]}
+            clean test | tee xcodebuild.log | xcpretty --utf && exit ${PIPESTATUS[0]}
