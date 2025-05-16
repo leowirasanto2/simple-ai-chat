@@ -7,18 +7,7 @@
 import SwiftUI
 
 struct LandingPageView: View {
-    @State private var topics: [String] = [
-        "Travel",
-        "Food",
-        "Technology",
-        "Health",
-        "Education"
-    ]
-    
-    @State private var suggestions = [Suggestion]().dummySuggestions
-    @State private var recentChats = Activity.dummyRecentChats
-    @State private var showingChatBottomSheet = false
-    @State private var selectedChats: [Chat] = []
+    @ObservedObject var viewModel = LandingPageViewModel()
     
     var body: some View {
         ZStack {
@@ -52,7 +41,7 @@ struct LandingPageView: View {
                 Spacer()
                 
                 Button {
-                    showingChatBottomSheet = true
+                    viewModel.showingChatBottomSheet = true
                 } label: {
                     HStack {
                         Text("Start a new chat")
@@ -69,14 +58,14 @@ struct LandingPageView: View {
                 .foregroundStyle(.white)
             }
         }
-        .sheet(isPresented: $showingChatBottomSheet) {
-            ChatPageView(messages: selectedChats) {
-                showingChatBottomSheet.toggle()
+        .sheet(isPresented: $viewModel.showingChatBottomSheet) {
+            ChatPageView(messages: viewModel.selectedChats) {
+                viewModel.showingChatBottomSheet.toggle()
             }
             .presentationDetents([.large])
             .onAppear {
                 // Reset selected chats when the sheet is dismissed
-                selectedChats = []
+                viewModel.selectedChats = []
             }
         }
     }
@@ -85,7 +74,7 @@ struct LandingPageView: View {
     private var topicChips: some View {
         ScrollView(.horizontal) {
             LazyHStack {
-                ForEach(topics, id: \.self) { topic in
+                ForEach(viewModel.topics, id: \.self) { topic in
                     ChipView(text: topic, action: {})
                 }
             }
@@ -98,7 +87,7 @@ struct LandingPageView: View {
     private var carouselSuggestions: some View {
         ScrollView(.horizontal) {
             LazyHStack {
-                ForEach(suggestions, id: \.id) { suggestion in
+                ForEach(viewModel.suggestions, id: \.id) { suggestion in
                     SquaredCardView(
                         icon: .init(systemName: suggestion.iconName),
                         title: suggestion.title,
@@ -114,7 +103,7 @@ struct LandingPageView: View {
     @ViewBuilder
     private var recentChatView: some View {
         LazyVStack(spacing: 16) {
-            ForEach(recentChats, id: \.id) { chat in
+            ForEach(viewModel.recentChats, id: \.id) { chat in
                 ListItem(
                     title: chat.title,
                     subtitle: chat.subTitle,
@@ -127,10 +116,10 @@ struct LandingPageView: View {
                     }
                 )
                 .onTapGesture {
-                    self.selectedChats = chat.previousChat
+                    self.viewModel.selectedChats = chat.previousChat
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                        self.showingChatBottomSheet = true
+                        self.viewModel.showingChatBottomSheet = true
                     }
                 }
                 
