@@ -16,12 +16,11 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
 
-      - name: Set Xcode version (adjust if needed)
-        run: sudo xcode-select -s /Applications/Xcode_15.3.app
+      - name: Set Xcode version
+        run: sudo /usr/bin/xcode-select -s /Applications/Xcode.app
 
-      - name: Clean derived data
-        run: |
-          rm -rf ~/Library/Developer/Xcode/DerivedData
+      - name: Clean Derived Data
+        run: rm -rf ~/Library/Developer/Xcode/DerivedData
 
       - name: Run Unit Tests
         run: |
