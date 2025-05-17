@@ -25,6 +25,8 @@
 		60489C1D2D9E83CB004BE85F /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60489C1C2D9E83CB004BE85F /* Actor.swift */; };
 		60489C1F2D9E8520004BE85F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60489C1E2D9E8520004BE85F /* Activity.swift */; };
 		60489C212D9E909E004BE85F /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60489C202D9E909E004BE85F /* ChatBubble.swift */; };
+		60B3F2822DD88D8E00E5D47E /* SuggestionsRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F2812DD88D8700E5D47E /* SuggestionsRepo.swift */; };
+		60B3F2842DD88D9A00E5D47E /* ChatRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B3F2832DD88D9200E5D47E /* ChatRepo.swift */; };
 		60CD9BD42BC8F2380033F343 /* SimpleAIChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */; };
 		60CD9BD62BC8F2380033F343 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CD9BD52BC8F2380033F343 /* ContentView.swift */; };
 		60CD9BD82BC8F23A0033F343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60CD9BD72BC8F23A0033F343 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		60489C1E2D9E8520004BE85F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		60489C202D9E909E004BE85F /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
 		60B3F27B2DD869CD00E5D47E /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
+		60B3F2812DD88D8700E5D47E /* SuggestionsRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsRepo.swift; sourceTree = "<group>"; };
+		60B3F2832DD88D9200E5D47E /* ChatRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRepo.swift; sourceTree = "<group>"; };
 		60C62C572DD7C18A0061FD29 /* SimpleAIChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleAIChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD02BC8F2380033F343 /* SimpleAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAIChatApp.swift; sourceTree = "<group>"; };
@@ -139,6 +143,15 @@
 			path = DummyResponse;
 			sourceTree = "<group>";
 		};
+		60B3F2802DD88D7600E5D47E /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				60B3F2832DD88D9200E5D47E /* ChatRepo.swift */,
+				60B3F2812DD88D8700E5D47E /* SuggestionsRepo.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
 		60CD9BC72BC8F2380033F343 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +175,7 @@
 		60CD9BD22BC8F2380033F343 /* SimpleAIChat */ = {
 			isa = PBXGroup;
 			children = (
+				60B3F2802DD88D7600E5D47E /* Repo */,
 				60489C032D9E70ED004BE85F /* Modules */,
 				60CD9BD92BC8F23A0033F343 /* SimpleAIChat.entitlements */,
 				6013EDA82BC91C1700593DEB /* Resources */,
@@ -343,6 +357,7 @@
 			files = (
 				60489C1F2D9E8520004BE85F /* Activity.swift in Sources */,
 				60489C1B2D9E83BE004BE85F /* Chat.swift in Sources */,
+				60B3F2822DD88D8E00E5D47E /* SuggestionsRepo.swift in Sources */,
 				60489C192D9E8004004BE85F /* ListItem.swift in Sources */,
 				60489C112D9E745C004BE85F /* ChipView.swift in Sources */,
 				60489C1D2D9E83CB004BE85F /* Actor.swift in Sources */,
@@ -357,6 +372,7 @@
 				60489C082D9E7126004BE85F /* LandingPageViewModel.swift in Sources */,
 				60489C0D2D9E714A004BE85F /* ChatPageViewModel.swift in Sources */,
 				60489C152D9E79B0004BE85F /* CustomAttributes.swift in Sources */,
+				60B3F2842DD88D9A00E5D47E /* ChatRepo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
