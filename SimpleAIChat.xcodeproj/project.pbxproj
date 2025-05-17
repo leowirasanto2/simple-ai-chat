@@ -60,6 +60,7 @@
 		60489C1C2D9E83CB004BE85F /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		60489C1E2D9E8520004BE85F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		60489C202D9E909E004BE85F /* ChatBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubble.swift; sourceTree = "<group>"; };
+		60B3F27B2DD869CD00E5D47E /* db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = db.json; sourceTree = "<group>"; };
 		60C62C572DD7C18A0061FD29 /* SimpleAIChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleAIChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD02BC8F2380033F343 /* SimpleAIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleAIChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60CD9BD32BC8F2380033F343 /* SimpleAIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAIChatApp.swift; sourceTree = "<group>"; };
@@ -130,9 +131,18 @@
 			path = ChatPage;
 			sourceTree = "<group>";
 		};
+		60B3F27A2DD869B700E5D47E /* DummyResponse */ = {
+			isa = PBXGroup;
+			children = (
+				60B3F27B2DD869CD00E5D47E /* db.json */,
+			);
+			path = DummyResponse;
+			sourceTree = "<group>";
+		};
 		60CD9BC72BC8F2380033F343 = {
 			isa = PBXGroup;
 			children = (
+				60B3F27A2DD869B700E5D47E /* DummyResponse */,
 				60434B512BE4E31600729F4A /* .gitignore */,
 				60CD9BD22BC8F2380033F343 /* SimpleAIChat */,
 				60C62C582DD7C18A0061FD29 /* SimpleAIChatTests */,
