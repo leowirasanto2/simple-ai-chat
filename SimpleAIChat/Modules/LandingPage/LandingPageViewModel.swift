@@ -45,7 +45,9 @@ class LandingPageViewModel: ObservableObject {
         suggestionRepo.fetchSuggestions { result in
             switch result {
             case .success(let response):
-                self.suggestions = response
+                DispatchQueue.main.async {
+                    self.suggestions = response
+                }
             case .failure(let error):
                 print("Error fetching suggestions: \(error)")
                 break
