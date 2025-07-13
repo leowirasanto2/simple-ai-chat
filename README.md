@@ -1,3 +1,6 @@
+**Announcement**
+Incoming new flow: https://excalidraw.com/#json=srCwrvjXW83nwggJHBW5q,aLyIYHWXZsBpyBrPqf0qXA
+
 **Overview**
 
 This repository is a personal project to integrate the AI chat feature into my iOS app.
