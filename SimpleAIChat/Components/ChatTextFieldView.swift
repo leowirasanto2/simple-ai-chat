@@ -12,6 +12,9 @@ struct ChatTextFieldView: View {
     @State var placeholder: String = "Start with simple prompt"
     @State var isMultilineMode = false
     
+    let onModelSelectionTap: (() -> Void)?
+    let onSendButtonTap: ((String) -> Void)?
+    
     var body: some View {
         VStack {
             TextField(placeholder, text: $text, axis: .vertical)
@@ -24,7 +27,7 @@ struct ChatTextFieldView: View {
                 // Model type chip
                 // no background, rounded corners, gray border color
                 Button {
-                    print("No feature yet for model type selection")
+                    onModelSelectionTap?()
                 } label: {
                     Text("3o-mini")
                         .padding(8)
@@ -39,7 +42,7 @@ struct ChatTextFieldView: View {
                 // always attached to the right side
                 // Icon Send button
                 Button(action: {
-                    print("Send button tapped with text: \(text)")
+                    onSendButtonTap?(text)
                 }) {
                     Image(systemName: "paperplane.fill")
                         .foregroundColor(.blue)
@@ -71,6 +74,7 @@ struct ChatTextFieldView: View {
 
 #Preview {
     @Previewable @State var text: String = ""
+    @Previewable @State var showToast: Bool = false
     
     VStack(spacing: 0) {
         ScrollView {
@@ -85,10 +89,16 @@ struct ChatTextFieldView: View {
         }
         
         // Rounded rectangle with elevate effect
-        ChatTextFieldView(text: $text)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .elevate()
-            .padding(.bottom, -32)
+        ChatTextFieldView(text: $text, onModelSelectionTap: {
+            // TODO: Implement model selection action
+        }, onSendButtonTap: { _ in
+            // TODO: Implement send button action
+            showToast = true
+        })
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .elevate()
+        .padding(.bottom, -32)
+        .showToast(isPresented: $showToast, type: .success, title: "Message sent!")
     }
 }
