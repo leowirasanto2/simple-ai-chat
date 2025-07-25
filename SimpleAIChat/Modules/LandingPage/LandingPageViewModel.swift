@@ -16,12 +16,15 @@ class LandingPageViewModel: ObservableObject {
         "Education"
     ]
     
-    @Published var suggestions = [Suggestion]().dummySuggestions
+    @Published var suggestions = [Suggestion]()
     @Published var recentChats = Activity.dummyRecentChats
     @Published var showingChatBottomSheet = false
     @Published var selectedChats: [Chat] = []
     
-    init() {
+    private var suggestionRepo: SuggestionsRepoProtocol
+    
+    init(suggestionRepo: SuggestionsRepoProtocol = SuggestionsRepo()) {
+        self.suggestionRepo = suggestionRepo
         self.populateData()
     }
     
@@ -33,7 +36,22 @@ class LandingPageViewModel: ObservableObject {
             "Health",
             "Education"
         ]
-        self.suggestions = [Suggestion]().dummySuggestions
         self.recentChats = Activity.dummyRecentChats
+        
+        self.fetchSuggestions()
+    }
+    
+    func fetchSuggestions() {
+        suggestionRepo.fetchSuggestions { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.suggestions = response
+                }
+            case .failure(let error):
+                print("Error fetching suggestions: \(error)")
+                break
+            }
+        }
     }
 }

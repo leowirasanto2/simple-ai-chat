@@ -1,0 +1,227 @@
+{
+    "suggestions": [
+        {
+            "id": "suggestion-1",
+            "title": "AI Code Assistant",
+            "subTitle": "Generate code snippets and functions",
+            "iconName": "chevron.left.slash.chevron.right",
+            "initialPrompt": "Write a function to calculate the factorial of a number."
+        },
+        {
+            "id": "suggestion-2",
+            "title": "AI Chatbot",
+            "subTitle": "Chat with AI assistant to get answers and suggestions",
+            "iconName": "robot",
+            "initialPrompt": "Hello, how can I assist you today?"
+        },
+        {
+            "id": "suggestion-3",
+            "title": "AI Writer",
+            "subTitle": "Generate text based on prompts and ideas, like stories or articles",
+            "iconName": "pencil",
+            "initialPrompt": "Write a story about a brave knight."
+        },
+        {
+            "id": "suggestion-4",
+            "title": "AI Translator",
+            "subTitle": "Translate text between languages like English and Spanish",
+            "iconName": "globe",
+            "initialPrompt": "Translate 'Hello' to Spanish."
+        }
+    ],
+    "chats": [
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "What is swiftUI?",
+            "actor": "USER"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "SwiftUI is a user interface toolkit that lets you design apps in a declarative way.",
+            "actor": "AI_ASSISTANT"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "What is combine framework?",
+            "actor": "USER"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "Combine is a framework that provides a declarative Swift API for processing values over time.",
+            "actor": "AI_ASSISTANT"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "What is the difference between swiftUI and combine framework?",
+            "actor": "USER"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "SwiftUI is for building user interfaces, while Combine is for handling asynchronous events and data streams.",
+            "actor": "AI_ASSISTANT"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "Thank you!",
+            "actor": "USER"
+        },
+        {
+            "id": "UUID_PLACEHOLDER",
+            "topic": "Programming",
+            "timestamp": "2025-05-17T00:00:00Z",
+            "message": "You're welcome! If you have any more questions, feel free to ask.",
+            "actor": "AI_ASSISTANT"
+        }
+    ],
+    "actor": [
+        {
+            "id": "actor-1",
+            "name": "User",
+            "avatar": "https://example.com/user_avatar.png",
+            "description": "This is a user.",
+            "role": "USER"
+        },
+        {
+            "id": "actor-2",
+            "name": "User",
+            "avatar": "https://example.com/user_avatar.png",
+            "description": "This is a user.",
+            "role": "AI_ASSISTANT"
+        }
+    ],
+    "activities": [
+        {
+            "id": "activity-1",
+            "title": "Programming",
+            "subTitle": "Talking about swiftUI and combine framework compared to Flutter",
+            "previousChat": [
+                {
+                    "id": "chat-1",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "What is swiftUI?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-2",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "SwiftUI is a user interface toolkit that lets you design apps in a declarative way.",
+                    "actor": "AI_ASSISTANT"
+                },
+                {
+                    "id": "chat-3",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "What is combine framework?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-4",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "Combine is a framework that provides a declarative Swift API for processing values over time.",
+                    "actor": "AI_ASSISTANT"
+                },
+                {
+                    "id": "chat-5",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "What is the difference between swiftUI and combine framework?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-6",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "SwiftUI is for building user interfaces, while Combine is for handling asynchronous events and data streams.",
+                    "actor": "AI_ASSISTANT"
+                },
+                {
+                    "id": "chat-7",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "Thank you!",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-8",
+                    "topic": "Programming",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "You're welcome! If you have any more questions, feel free to ask.",
+                    "actor": "AI_ASSISTANT"
+                }
+            ]
+        },
+        {
+            "id": "activity-2",
+            "title": "Cooking",
+            "subTitle": "Talking about how to bake a croissant",
+            "previousChat": [
+                {
+                    "id": "chat-1",
+                    "topic": "Cooking",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "How to bake a croissant?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-2",
+                    "topic": "Cooking",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "To bake a croissant, you need to prepare the dough, roll it out, and shape it into a crescent. Then, let it rise before baking.",
+                    "actor": "AI_ASSISTANT"
+                },
+                {
+                    "id": "chat-3",
+                    "topic": "Cooking",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "What are the ingredients?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-4",
+                    "topic": "Cooking",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "The main ingredients are flour, water, yeast, sugar, salt, and butter.",
+                    "actor": "AI_ASSISTANT"
+                }
+            ]
+        },
+        {
+            "id": "activity-3",
+            "title": "Cars",
+            "subTitle": "Talking about the latest car models",
+            "previousChat": [
+                {
+                    "id": "chat-1",
+                    "topic": "Cars",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "What are the latest car models?",
+                    "actor": "USER"
+                },
+                {
+                    "id": "chat-2",
+                    "topic": "Cars",
+                    "timestamp": "2025-05-17T00:00:00Z",
+                    "message": "The latest car models include the Tesla Model S, Ford Mustang Mach-E, and the Chevrolet Corvette.",
+                    "actor": "AI_ASSISTANT"
+                }
+            ]
+        }
+    ]
+}
