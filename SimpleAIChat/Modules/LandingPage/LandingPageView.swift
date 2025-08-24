@@ -65,7 +65,7 @@ struct LandingPageView: View {
             .presentationDetents([.large])
             .onAppear {
                 // Reset selected chats when the sheet is dismissed
-                viewModel.selectedChats = []
+                viewModel.resetSelectedChats()
             }
         }
     }
