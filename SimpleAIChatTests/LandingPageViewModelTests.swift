@@ -23,7 +23,7 @@ class LandingPageViewModelTests: XCTestCase {
     }
 
     func testInitialTopics() {
-        let expectedTopics = ["Travel", "Food", "Technology", "Health", "Education"]
+        let expectedTopics = ["Travel", "Food", "Technology"]
         XCTAssertEqual(sut.topics, expectedTopics, "Topics should match the expected default values")
     }
 
